@@ -1,0 +1,386 @@
+:root {
+    --primary-color: #ff006e;
+    --secondary-color: #3a86ff;
+    --tertiary-color: #8338ec;
+    --dark-color: #0d1117;
+    --light-color: #f8f9fa;
+    --card-bg: rgba(25, 27, 38, 0.8);
+    --gradient-primary: linear-gradient(45deg, var(--primary-color), var(--tertiary-color));
+    --gradient-secondary: linear-gradient(135deg, var(--secondary-color), var(--tertiary-color));
+    --glow-color: rgba(255, 0, 110, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Exo 2', 'Roboto', sans-serif;
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    line-height: 1.6;
+    background-image: url('images/cyberpunk-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 17, 23, 0.85);
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Section */
+.header {
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    padding: 2rem;
+    background: var(--card-bg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-primary);
+    z-index: -1;
+    border-radius: 16px;
+    filter: blur(8px);
+    opacity: 0.7;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 15px var(--glow-color);
+    letter-spacing: 3px;
+}
+
+.japan-flag {
+    font-size: 2.5rem;
+    vertical-align: middle;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.aliases {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.alias {
+    color: var(--light-color);
+    font-style: italic;
+}
+
+.divider {
+    color: var(--primary-color);
+}
+
+.occupation, .location {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #b8b8b8;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.location i {
+    color: var(--primary-color);
+}
+
+/* Sections */
+section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 15px;
+    background: var(--card-bg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.section-title i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* Anime Picks */
+.anime-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.anime-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+}
+
+#anime1 { background-image: url('images/terror-in-resonance.png'); }
+#anime2 { background-image: url('images/eminence-in-shadow.png'); }
+#anime3 { background-image: url('images/overlord.png'); }
+#anime4 { background-image: url('images/code-geass.png'); }
+#anime5 { background-image: url('images/vinland-saga.png'); }
+
+.anime-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 20%, transparent 100%);
+}
+
+.anime-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.anime-content {
+    padding: 1.5rem;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.anime-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--light-color);
+}
+
+.anime-genre {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.anime-desc {
+    font-size: 0.9rem;
+    color: #d1d1d1;
+}
+
+/* Traits Section */
+.traits-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.trait {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.trait:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.trait i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Projects Section */
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.project i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+/* Background Elements */
+.background-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glitch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 0, 110, 0.05), rgba(58, 134, 255, 0.05));
+    mix-blend-mode: overlay;
+    opacity: 0.3;
+}
+
+.matrix-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .anime-list, .traits-container, .project-list {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+}
+
+/* Animations */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px var(--glow-color); }
+    50% { text-shadow: 0 0 20px var(--glow-color), 0 0 30px var(--glow-color); }
+    100% { text-shadow: 0 0 5px var(--glow-color); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Add some element animations */
+.name {
+    animation: glow 3s infinite alternate;
+}
+
+.trait, .project {
+    animation: float 6s infinite ease-in-out;
+    animation-delay: calc(var(--i, 0) * 0.5s);
+}
+
+.trait:nth-child(1) { --i: 1; }
+.trait:nth-child(2) { --i: 2; }
+.trait:nth-child(3) { --i: 3; }
+.trait:nth-child(4) { --i: 4; }
+.trait:nth-child(5) { --i: 5; }
+.trait:nth-child(6) { --i: 6; }
+
+.project:nth-child(1) { --i: 1; }
+.project:nth-child(2) { --i: 2; }
+.project:nth-child(3) { --i: 3; }
